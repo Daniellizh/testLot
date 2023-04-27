@@ -20,11 +20,11 @@
                 <div class="mb-6 ">
                     <label class="block">
                         <span class="text-gray-700">Select Category</span>
-                        <select name="category_id" class="block w-full mt-1 rounded-md">
-                            @foreach ($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
-                            @endforeach
-                        </select>
+                        <select id="categories" class="form-control" name="categories[]" multiple>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
                     </label>
                 </div>
                 <button class="btn btn-primary mt-2">Submit</button>

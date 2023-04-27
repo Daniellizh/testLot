@@ -26,23 +26,9 @@
             <div class="card-body">
               <h5 class="card-title">{{ $lot->name }}</h5>
               <p class="card-text">{{ $lot->description}}</p>
-              <p class="card-text">{{ $lot->categories->name}}</p>
             </div>
           </div>
         @endforeach
 
-        {{-- <form action="{{ route('home') }}" method="get">
-            <div class="form-group">
-                <label for="categories">Filter by categories:</label>
-                <select name="categories[]" id="categories" class="form-control" multiple>
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->name }}" {{ in_array($category->name, request()->input('categories', [])) ? 'selected' : '' }}>
-                            {{ $category->name }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Filter</button>
-        </form> --}}
     </div>
 @endsection

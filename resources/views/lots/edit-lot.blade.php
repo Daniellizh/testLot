@@ -17,16 +17,14 @@
                     <label>Description</label>
                     <input type="text" name="description" value="{{ $lot->description }}" class="form-control">
                 </div>
-                <div class="mb-6 ">
-                    <label class="block">
-                        <span class="text-gray-700">Select Category</span>
-                        <select name="category_id" class="block w-full mt-1 rounded-md">
-                            @foreach ($categories as $category)
-                            <option @selected($category->id == $lot->category_id)
-                                value="{{$category->id}}">{{$category->name}}</option>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <select id="categories" class="form-control @error('categories') is-invalid @enderror" name="categories[]" multiple required>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}" {{ in_array($category->id, $lot->categories->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $category->name }}</option>
                             @endforeach
                         </select>
-                    </label>
+                    </div>
                 </div>
                 <button class="btn btn-primary mt-2">Submit</button>
             </form>

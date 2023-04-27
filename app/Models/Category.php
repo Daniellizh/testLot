@@ -12,8 +12,8 @@ class Category extends Model
 
     protected $fillable = ['name'];
 
-    public function lots(): HasMany
+    public function lots()
     {
-        return $this->hasMany(Lot::class, 'category_id', 'id');
+        return $this->belongsToMany(Lot::class);
     }
 }

@@ -10,10 +10,10 @@ class Lot extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'category_id'];
+    protected $fillable = ['name', 'description'];
 
-    public function categories(): BelongsTo
-     {
-         return $this->BelongsTo(Category::class, 'category_id', 'id');
-     }
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
 }

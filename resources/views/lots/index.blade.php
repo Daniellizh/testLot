@@ -13,6 +13,7 @@
                 <h5 class="card-title">{{ $lot->name }}</h5>
                 <p class="card-text">{{ $lot->description }}</p>
                 <a href="{{ route('edit-lot', $lot->id) }}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('show-lot', $lot->id) }}" class="btn btn-primary">Show</a>
                     <form action="{{ route('delete-lot', $lot->id)}}" method="POST" style="display:inline-block">
                     @csrf
                     @method('DELETE')

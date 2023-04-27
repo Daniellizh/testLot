@@ -12,6 +12,7 @@
                 <div class="card-body">
                 <h5 class="card-title">{{ $category->name }}</h5>
                 <a href="{{ route('edit-category', $category->id) }}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('show-category', $category->id) }}" class="btn btn-primary">Show</a>
                     <form action="{{ route('delete-category', $category->id)}}" method="POST" style="display:inline-block">
                     @csrf
                     @method('DELETE')

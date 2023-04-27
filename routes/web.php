@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::get('home', [HomeController::class, 'index'])->name('home');
 
 Route::get('lots/index', [LotController::class, 'index'])->name('lots');
+Route::get('lots/show/{id}', [LotController::class, 'show'])->name('show-lot');
 Route::get('lots/create', [LotController::class, 'create'])->name('add-new-lot');
 Route::post('lots/store', [LotController::class, 'store'])->name('store-lot');
 Route::get('lots/edit/{id}', [LotController::class, 'edit'])->name('edit-lot');
@@ -30,6 +31,7 @@ Route::post('lots/edit{id}', [LotController::class, 'update'])->name('update-lot
 Route::delete('lots/index/{id}', [LotController::class, 'destroy'])->name('delete-lot');
 
 Route::get('categories/index', [CategoryController::class, 'index'])->name('categories');
+Route::get('categories/show/{id}', [CategoryController::class, 'show'])->name('show-category');
 Route::get('categories/create', [CategoryController::class, 'create'])->name('add-new-category');
 Route::post('categories/store', [CategoryController::class, 'store'])->name('store-category');
 Route::get('categories/edit/{id}', [CategoryController::class, 'edit'])->name('edit-category');
