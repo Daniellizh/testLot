@@ -13,17 +13,12 @@ class LotController extends Controller
         $query = Lot::query();
 
         if ($request->has('category')) {
-            $categoryId = $request->category;
-            $query->whereHas('categories', function ($q) use ($categoryId) {
-                $q->where('id', $categoryId);
-            });
+            $query->byCategory($request->category);
         }
 
         $lots = $query->get();
 
-        $categories = Category::all();
-
-        return view('lots.index', compact('lots', 'categories'));
+        return view('lots.index', compact('lots'));
     }
 
     public function create()

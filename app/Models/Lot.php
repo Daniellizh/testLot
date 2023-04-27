@@ -16,4 +16,11 @@ class Lot extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function scopeByCategory($query, $categoryId)
+    {
+        return $query->whereHas('categories', function ($q) use ($categoryId) {
+            $q->where('id', $categoryId);
+        });
+    }
 }
