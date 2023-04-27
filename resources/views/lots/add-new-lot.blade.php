@@ -20,11 +20,12 @@
                 <div class="mb-6 ">
                     <label class="block">
                         <span class="text-gray-700">Select Category</span>
-                        <select id="categories" class="form-control" name="categories[]" multiple>
-                                        @foreach($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
-                                    </select>
+                        @foreach($categories as $category)
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="categories[]" id="{{ $category->id }}" value="{{ $category->id }}">
+                                <label class="form-check-label" for="{{ $category->id }}">{{ $category->name }}</label>
+                            </div>
+                        @endforeach
                     </label>
                 </div>
                 <button class="btn btn-primary mt-2">Submit</button>

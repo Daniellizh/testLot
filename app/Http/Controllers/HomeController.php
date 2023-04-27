@@ -10,10 +10,6 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        // $categories = Category::get();
-        // $lots = Lot::get();
-        // return view('home', compact('lots', 'categories'));
-
         $query = Lot::query();
 
         if ($request->has('categories')) {

@@ -10,8 +10,6 @@ class LotController extends Controller
 {
     public function index(Request $request)
     {
-        // $lots = Lot::with('categories')->get();
-
         $query = Lot::query();
 
         if ($request->has('category')) {
