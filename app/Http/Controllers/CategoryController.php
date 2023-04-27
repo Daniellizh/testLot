@@ -69,6 +69,9 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
 
+        if ($category->lots()->exists()) {
+            return back()->with('error', 'Category has lot');
+        }
         $category->delete();
 
         return back()->with('status', 'Category delete!');
